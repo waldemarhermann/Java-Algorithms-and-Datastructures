@@ -56,19 +56,17 @@ public class DoublyLinkedList {
 
     public Node removeLast() {
         if (length == 0) return null;
+        Node temp = tail;
         if(length == 1) {
-            Node temp = head;
             head = null;
             tail = null;
-            length--;
-            return temp;
         } else {
-            Node temp = tail.prev;
-            tail.prev = null;
-            temp.next = null;
-            length--;
-            return temp;
+            tail = tail.prev;
+            tail.next = null;
+            temp.prev = null;
         }
+        length--;
+        return temp;
     }
 
     public void prepend(int value) {
@@ -115,6 +113,45 @@ public class DoublyLinkedList {
             return true;
         }
         return false;
+    }
+
+    public boolean insert(int index, int value) {
+        if (index < 0 || index > length) return false;
+        if (index == 0) {
+            prepend(value);
+            return true;
+        }
+        if (index == length) {
+            append(value);
+            return true;
+        }
+
+        Node newNode = new Node(value);
+        Node before = get(index - 1);
+        Node after = before.next;
+        before.next = newNode;
+        newNode.prev = before;
+        newNode.next = after;
+        after.prev = newNode;
+        length++;
+        return true;
+    }
+
+    public Node remove(int index) {
+        if (index < 0 || index >= length) return null;
+        if (index == 0) {
+            return removeFirst();
+        }
+        if (index == length - 1) {
+            return removeLast();
+        }
+        Node temp = get(index);
+        temp.prev.next = temp.next;
+        temp.next.prev = temp.prev;
+        temp.prev = null;
+        temp.next = null;
+        length--;
+        return temp;
     }
 
 }
