@@ -8,7 +8,8 @@ public class Main {
         myDLL.append(4); // 3
         myDLL.append(5); // 4
 
-        System.out.println(myDLL.remove(4).value);
+        myDLL.swapFirstLast();
+        myDLL.printList();
 
 
     }
