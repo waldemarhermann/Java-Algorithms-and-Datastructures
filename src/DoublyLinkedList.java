@@ -161,4 +161,19 @@ public class DoublyLinkedList {
         tail.value = temp;
     }
 
+    public void reverse() {
+        Node current = head;
+        Node temp = current.prev;
+
+        while(current != null) {
+            temp = current.prev;
+            current.prev = current.next;
+            current.next = temp;
+            current = current.prev;
+        }
+        temp = head;
+        head = tail;
+        tail = temp;
+    }
+
 }
