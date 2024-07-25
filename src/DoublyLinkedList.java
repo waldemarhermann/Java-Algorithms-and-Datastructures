@@ -176,4 +176,38 @@ public class DoublyLinkedList {
         tail = temp;
     }
 
+    public void swapPairs() {
+        Node dummyNode = new Node(0);
+        dummyNode.next = head;
+        Node previousNode = dummyNode;
+
+
+
+        while(head != null && head.next != null) {
+            // Wichtig, dass firstNode und secondNode neu zugewiesen werden, Deklaration kann auch außerhalb der Schleife erfolgen.
+            Node firstNode = head;
+            Node secondNode = head.next;
+
+            // change firstNode and secondNode
+            previousNode.next = secondNode;
+            firstNode.next = secondNode.next;
+            secondNode.next = firstNode;
+
+            // set pre pointer
+            firstNode.prev = secondNode;
+            secondNode.prev = previousNode;
+
+            if (firstNode.next != null) {
+                firstNode.next.prev = firstNode;
+            }
+
+            previousNode = firstNode;
+            head = firstNode.next;
+
+        }
+
+        head = dummyNode.next;
+        if (head != null) head.prev = null;
+    }
+
 }

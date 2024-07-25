@@ -1,15 +1,29 @@
 public class Main {
     public static void main(String[] args) {
 
-        DoublyLinkedList myDLL = new DoublyLinkedList(1);
+        DoublyLinkedList myDll = new DoublyLinkedList(1);
+        myDll.append(2);
+        myDll.append(3);
+        myDll.append(4);
 
-        myDLL.append(2); // 1
-        myDLL.append(3); // 2
-        myDLL.append(4); // 3
-        myDLL.append(5); // 4
+        System.out.println("myDll before swapPairs:");
+        myDll.printList();
 
-        myDLL.swapFirstLast();
-        myDLL.printList();
+        myDll.swapPairs();
+
+        System.out.println("\n myDll after swapPairs:");
+        myDll.printList();
+
+        /*
+            EXPECTED OUTPUT:
+            ----------------
+            myDll before swapPairs:
+            1 <-> 2 <-> 3 <-> 4
+
+            myDll after swapPairs:
+            2 <-> 1 <-> 4 <-> 3
+
+        */
 
 
     }
