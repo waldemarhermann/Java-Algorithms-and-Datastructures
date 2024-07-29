@@ -34,4 +34,9 @@ public class Stack <T> {
         stackList.add(item);
     }
 
+    public T pop() {
+        if (isEmpty()) return null;
+        return stackList.remove(stackList.size() - 1);
+    }
+
 }
