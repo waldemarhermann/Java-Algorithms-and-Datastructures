@@ -1,30 +1,24 @@
 public class Main {
+
+    public static String reverseString(String string) {
+        Stack<Character> myStack = new Stack<>();
+        String newString = "";
+
+        char[] charArray = string.toCharArray();
+
+        for (char c : charArray) {
+            myStack.push(c);
+        }
+
+        while(!myStack.isEmpty()) {
+            newString += myStack.pop();
+        }
+
+        return newString;
+    }
+
+
     public static void main(String[] args) {
-
-        DoublyLinkedList myDll = new DoublyLinkedList(1);
-        myDll.append(2);
-        myDll.append(3);
-        myDll.append(4);
-
-        System.out.println("myDll before swapPairs:");
-        myDll.printList();
-
-        myDll.swapPairs();
-
-        System.out.println("\n myDll after swapPairs:");
-        myDll.printList();
-
-        /*
-            EXPECTED OUTPUT:
-            ----------------
-            myDll before swapPairs:
-            1 <-> 2 <-> 3 <-> 4
-
-            myDll after swapPairs:
-            2 <-> 1 <-> 4 <-> 3
-
-        */
-
 
     }
 }
