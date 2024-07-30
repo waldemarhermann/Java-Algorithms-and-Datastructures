@@ -42,6 +42,9 @@ public class Stack <T> {
     public static String reverseString(String string) {
         Stack<Character> myStack = new Stack<>();
         String newString = "";
+        /* Alternativ:
+        StringBuilder newString = new StringBuilder();
+         */
 
 
         char[] charArray = string.toCharArray();
@@ -60,9 +63,10 @@ public class Stack <T> {
             newString += myStack.pop();
         }
 
-
-
         return newString;
+        /* Alternativ:
+        return newString.toString();
+         */
     }
 
     public static boolean isBalancedParentheses(String parenthese) {
