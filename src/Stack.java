@@ -101,5 +101,21 @@ public class Stack <T> {
         System.out.println("--------------");
     }
 
+    public static void sortStack(Stack<Integer> inputStack) {
+        Stack<Integer> additionalStack = new Stack<>();
+
+        while (!inputStack.isEmpty()) {
+            int temp = inputStack.pop();
+
+            while (!additionalStack.isEmpty() && additionalStack.peek() > temp) {
+                inputStack.push(additionalStack.pop());
+            }
+            additionalStack.push(temp);
+        }
+            while (!additionalStack.isEmpty()) {
+                inputStack.push(additionalStack.pop());
+            }
+
+    }
 
 }
