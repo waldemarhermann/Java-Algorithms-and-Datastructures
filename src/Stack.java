@@ -43,17 +43,58 @@ public class Stack <T> {
         Stack<Character> myStack = new Stack<>();
         String newString = "";
 
+
         char[] charArray = string.toCharArray();
 
         for (char c : charArray) {
             myStack.push(c);
         }
 
+        /* Alternativ:
+        while (!myStack.isEmpty()) {
+            newString.append(myStack.pop());
+        }
+         */
+
         while(!myStack.isEmpty()) {
             newString += myStack.pop();
         }
 
+
+
         return newString;
+    }
+
+    public static boolean isBalancedParentheses(String parenthese) {
+        Stack<Character> stack = new Stack<>();
+
+        char[] parentheseArray = parenthese.toCharArray();
+        for (char p : parentheseArray) {
+            if (p == '(') {
+                stack.push(p);
+            } else if (p == ')') {
+                if (stack.isEmpty() || stack.pop() != '(') {
+                    return false;
+                }
+            }
+        }
+        return stack.isEmpty();
+    }
+
+    public static void testAndPrint(String testString, boolean expected) {
+        boolean result = isBalancedParentheses(testString);
+
+        System.out.println("Test String: " + testString);
+        System.out.println("EXPECTED: " + expected);
+        System.out.println("RESULT: " + result);
+
+        if (expected == result) {
+            System.out.println("Status: PASS");
+        } else {
+            System.out.println("Status: FAIL");
+        }
+
+        System.out.println("--------------");
     }
 
 }
