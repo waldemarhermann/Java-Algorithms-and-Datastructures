@@ -1,6 +1,8 @@
+package Stack;
+
 import java.util.ArrayList;
 
-public class Stack <T> {
+public class Stack<T> {
 
     ArrayList<T> stackList = new ArrayList<>();
 
@@ -40,7 +42,7 @@ public class Stack <T> {
     }
 
     public static String reverseString(String string) {
-        Stack<Character> myStack = new Stack<>();
+        Stack<Character> myStack = new Stack<Character>();
         String newString = "";
         /* Alternativ:
         StringBuilder newString = new StringBuilder();
@@ -70,7 +72,7 @@ public class Stack <T> {
     }
 
     public static boolean isBalancedParentheses(String parenthese) {
-        Stack<Character> stack = new Stack<>();
+        Stack<Character> stack = new Stack<Character>();
 
         char[] parentheseArray = parenthese.toCharArray();
         for (char p : parentheseArray) {
@@ -102,7 +104,7 @@ public class Stack <T> {
     }
 
     public static void sortStack(Stack<Integer> inputStack) {
-        Stack<Integer> additionalStack = new Stack<>();
+        Stack<Integer> additionalStack = new Stack<Integer>();
 
         while (!inputStack.isEmpty()) {
             int temp = inputStack.pop();
