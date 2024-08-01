@@ -3,24 +3,15 @@ package Queue;
 public class Main {
 
     public static void main(String [] args) {
-        Queue queue = new Queue(1);
+        MyQueue q = new MyQueue();
 
-        queue.enqueue(2);
-        queue.enqueue(3);
-        queue.enqueue(4);
-        queue.enqueue(5);
+        q.enqueue(1);
+        q.enqueue(2);
+        q.enqueue(3);
 
-        queue.printQueue();
+        System.out.println("Front: " + q.peek());
 
-        System.out.println("------------------------");
-
-        queue.dequeue();
-        queue.printQueue();
-
-        System.out.println("------------------------");
-
-        queue.enqueue(6);
-        queue.printQueue();
+        System.out.println("Is empty? " + q.isEmpty());
 
     }
 
