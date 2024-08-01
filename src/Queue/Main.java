@@ -3,12 +3,25 @@ package Queue;
 public class Main {
 
     public static void main(String [] args) {
-        Queue queue = new Queue(5);
+        Queue queue = new Queue(1);
+
+        queue.enqueue(2);
+        queue.enqueue(3);
+        queue.enqueue(4);
+        queue.enqueue(5);
 
         queue.printQueue();
-        queue.getFirst();
-        queue.getLast();
-        queue.getLength();
+
+        System.out.println("------------------------");
+
+        queue.dequeue();
+        queue.printQueue();
+
+        System.out.println("------------------------");
+
+        queue.enqueue(6);
+        queue.printQueue();
+
     }
 
 }

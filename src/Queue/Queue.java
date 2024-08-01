@@ -42,4 +42,24 @@ public class Queue {
     public void getLength() {
         System.out.println("Length: " + length);
     }
+
+    public void enqueue(int value) {
+        Node newNode = new Node(value);
+        if (length == 0) {
+            first = newNode;
+            last = newNode;
+        }
+        last.next = newNode;
+        last = newNode;
+
+        length++;
+    }
+
+    public Node dequeue() {
+        if (length == 0) return null;
+        Node temp = first;
+        first = temp.next;
+        temp.next = null;
+        return temp;
+    }
 }
