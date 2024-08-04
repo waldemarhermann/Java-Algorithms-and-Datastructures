@@ -13,4 +13,9 @@ public class BinarySearchTree {
             this.value = value;
         }
     }
+
+    public Node getRoot() {
+        return root;
+    }
+
 }
