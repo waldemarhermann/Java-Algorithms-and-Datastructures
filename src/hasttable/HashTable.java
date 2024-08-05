@@ -40,4 +40,19 @@ public class HashTable {
         }
         return hash;
     }
+
+    public void set(String key, int value) {
+        Node newNode = new Node(key, value);
+        int index = hash(key);
+            if (dataMap[index] == null) {
+                dataMap[index] = newNode;
+            } else {
+                for(int i = 0; i < dataMap.length; i++) {
+                    if (dataMap[i] == null) {
+                        dataMap[i] = newNode;
+                        break;
+                    }
+                }
+            }
+    }
 }
