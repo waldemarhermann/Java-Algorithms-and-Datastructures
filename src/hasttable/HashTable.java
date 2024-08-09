@@ -44,15 +44,22 @@ public class HashTable {
     public void set(String key, int value) {
         Node newNode = new Node(key, value);
         int index = hash(key);
-            if (dataMap[index] == null) {
-                dataMap[index] = newNode;
-            } else {
-                for(int i = 0; i < dataMap.length; i++) {
-                    if (dataMap[i] == null) {
-                        dataMap[i] = newNode;
-                        break;
-                    }
+        if (dataMap[index] == null) {
+            dataMap[index] = newNode;
+        } else {
+            Node temp = dataMap[index];
+            if (temp.key.equals(newNode.key)) {
+                temp.value += newNode.value;
+                return;
+            }
+            while (temp.next != null) {
+                temp = temp.next;
+                if (temp.key.equals(newNode.key)) {
+                    temp.value += newNode.value;
+                    return;
                 }
             }
+            temp.next = newNode;
+        }
     }
 }
