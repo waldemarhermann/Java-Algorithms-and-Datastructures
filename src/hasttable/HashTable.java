@@ -106,4 +106,20 @@ public class HashTable {
         }
         return duplicates;
     }
+
+    public Character firstNonRepeatingChar(String string) {
+        HashMap<Character, Integer> charCounts = new HashMap<>();
+        char[] c = string.toCharArray();
+
+        for (char ch : c) {
+            charCounts.put(ch, charCounts.getOrDefault(ch, 0) + 1);
+        }
+
+        for (Map.Entry<Character, Integer> entry : charCounts.entrySet()) {
+            if (entry.getValue() < 2) {
+                return entry.getKey();
+            }
+        }
+        return null;
+    }
 }
