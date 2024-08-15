@@ -191,4 +191,21 @@ public class HashTable {
         }
         return true;
     }
+
+    public List<int[]> findPairs(int[] arr1, int[] arr2, int target) {
+        Set<Integer> mySet = new HashSet<>();
+        List<int[]> pairs = new ArrayList<>();
+
+        for (int num : arr1) {
+            mySet.add(num);
+        }
+
+        for (int num : arr2) {
+            int complement = target - num;
+            if (mySet.contains(complement)) {
+                pairs.add(new int[]{complement, num} );
+            }
+        }
+        return pairs;
+    }
 }
