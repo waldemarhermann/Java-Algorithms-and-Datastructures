@@ -179,4 +179,16 @@ public class HashTable {
         Set<Integer> uniqueSet = new HashSet<>(myList);
         return new ArrayList<>(uniqueSet);
     }
+
+    public boolean hasUniqueChars(String string) {
+        Set<Character> charSet = new HashSet<>();
+
+        for (char ch : string.toCharArray()) {
+            if (charSet.contains(ch)) {
+                return false;
+            }
+            charSet.add(ch);
+        }
+        return true;
+    }
 }

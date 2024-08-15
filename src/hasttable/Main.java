@@ -7,8 +7,10 @@ public class Main {
     public static void main(String [] args) {
 
         HashTable myHashTable = new HashTable();
-        List<Integer> myList = List.of(1,2,3,4,5,6,7,8,9,5,4,6,8,2,3);
-        List<Integer> newList = myHashTable.removeDuplicates(myList);
-        System.out.println(newList);
+        System.out.println(myHashTable.hasUniqueChars("abcdefg")); // should return true
+        System.out.println(myHashTable.hasUniqueChars("hello")); // should return false
+        System.out.println(myHashTable.hasUniqueChars("")); // should return true
+        System.out.println(myHashTable.hasUniqueChars("0123456789")); // should return true
+        System.out.println(myHashTable.hasUniqueChars("abacadaeaf")); // should return false
     }
 }
