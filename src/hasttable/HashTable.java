@@ -208,4 +208,48 @@ public class HashTable {
         }
         return pairs;
     }
+
+    public int longestConsecutiveSequence(int[] nums) {
+        Set<Integer> numSet = new HashSet<>();
+        for (int num : nums) {
+            numSet.add(num);
+        }
+
+        int longestStreak = 0;
+
+        for (int num : numSet) {
+            if (!numSet.contains(num - 1)) {
+                int currentNum = num;
+                int currentStreak = 1;
+
+                while (numSet.contains(currentNum + 1)) {
+                    currentNum++;
+                    currentStreak++;
+                }
+
+                longestStreak = Math.max(longestStreak, currentStreak);
+            }
+        }
+        return longestStreak;
+    }
+
+    public void testLongestConsecutiveSequence(String title, int[] nums, int expected) {
+        System.out.println("Test: " + title);
+        System.out.print("Testing array: ");
+        for (int num : nums) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+
+        int result = longestConsecutiveSequence(nums);
+        System.out.println("Expected longest streak: " + expected);
+        System.out.println("Actual longest streak: " + result);
+
+        if (result == expected) {
+            System.out.println("PASS\n");
+        } else {
+            System.out.println("FAIL\n");
+        }
+    }
+
 }
