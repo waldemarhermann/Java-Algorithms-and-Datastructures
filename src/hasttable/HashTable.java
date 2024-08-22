@@ -209,24 +209,24 @@ public class HashTable {
         return pairs;
     }
 
-    public int longestConsecutiveSequence(int[] nums) {
+    public int longestConsecutiveSequence(int[] arr) {
         Set<Integer> numSet = new HashSet<>();
-        for (int num : nums) {
-            numSet.add(num);
+
+        for (int i : arr) {
+            numSet.add(i);
         }
 
         int longestStreak = 0;
 
         for (int num : numSet) {
             if (!numSet.contains(num - 1)) {
-                int currentNum = num;
+                int currentNumber = num;
                 int currentStreak = 1;
 
-                while (numSet.contains(currentNum + 1)) {
-                    currentNum++;
+                while (numSet.contains(currentNumber + 1)) {
+                    currentNumber++;
                     currentStreak++;
                 }
-
                 longestStreak = Math.max(longestStreak, currentStreak);
             }
         }
