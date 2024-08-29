@@ -2,24 +2,41 @@ package heap;
 
 public class Main {
 
+    public static int findKthSmallest(int[] nums, int k) {
+        Heap maxHeap = new Heap();
+        for (int i : nums) {
+            maxHeap.insert(i);
+            if (maxHeap.getHeap().size() > k) {
+                maxHeap.remove();
+            }
+        }
+        return maxHeap.getHeap().get(0);
+    }
+
     public static void main(String[] args) {
+        // Test case 1
+        int[] nums1 = {7, 10, 4, 3, 20, 15};
+        int k1 = 3;
+        System.out.println("Test case 1:");
+        System.out.println("Expected output: 7");
+        System.out.println("Actual output: " + findKthSmallest(nums1, k1));
+        System.out.println();
 
-        Heap myHeap = new Heap();
+        // Test case 2
+        int[] nums2 = {2, 1, 3, 5, 6, 4};
+        int k2 = 2;
+        System.out.println("Test case 2:");
+        System.out.println("Expected output: 2");
+        System.out.println("Actual output: " + findKthSmallest(nums2, k2));
+        System.out.println();
 
-        myHeap.insert(99);
-        myHeap.insert(77);
-        myHeap.insert(55);
-        myHeap.insert(33);
-        System.out.println(myHeap.getHeap());
-
-        myHeap.insert(100);
-        System.out.println(myHeap.getHeap());
-
-        myHeap.insert(75);
-        System.out.println(myHeap.getHeap());
-
-        myHeap.insert(80);
-        System.out.println(myHeap.getHeap());
+        // Test case 3
+        int[] nums3 = {9, 3, 2, 11, 7, 10, 4, 5};
+        int k3 = 5;
+        System.out.println("Test case 3:");
+        System.out.println("Expected output: 7");
+        System.out.println("Actual output: " + findKthSmallest(nums3, k3));
+        System.out.println();
 
     }
 }

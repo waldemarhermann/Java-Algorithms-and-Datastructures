@@ -42,7 +42,7 @@ public class Heap {
         }
     }
 
-    public Integer remove(int index) {
+    public Integer remove() {
         if (heap.isEmpty()) return null;
         if (heap.size() == 1) {
             return heap.remove(0);
@@ -75,4 +75,5 @@ public class Heap {
             }
         }
     }
+
 }
