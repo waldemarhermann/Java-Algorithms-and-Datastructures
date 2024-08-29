@@ -22,6 +22,7 @@ public class BinarySearchTree {
         Node newNode = new Node(value);
         if (root == null) {
             root = newNode;
+            return true;
         }
         Node temp = root;
         while (true) {
@@ -69,6 +70,22 @@ public class BinarySearchTree {
 
     public boolean rContains(int value) {
         return rContains(root, value);
+    }
+
+    private Node rInsert(Node currentNode, int value) {
+        if (currentNode == null) return new Node(value);
+
+        if (value < currentNode.value) {
+            currentNode.left = rInsert(currentNode.left, value);
+        } else if (value > currentNode.value) {
+            currentNode.right = rInsert(currentNode.right, value);
+        }
+        return currentNode;
+    }
+
+    public void rInsert(int value) {
+        if (root == null) root = new Node(value);
+        rInsert(root, value);
     }
 
 }
