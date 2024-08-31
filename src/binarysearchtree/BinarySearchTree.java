@@ -102,7 +102,9 @@ public class BinarySearchTree {
             } else if (currentNode.right == null) {
                 currentNode = currentNode.left;
             } else {
-
+                int subTreeMin = minValue(currentNode.right);
+                currentNode.value = subTreeMin;
+                currentNode.right = deleteNode(currentNode.right, subTreeMin);
             }
         }
         return currentNode;
