@@ -2,7 +2,7 @@ package binarysearchtree;
 
 public class BinarySearchTree {
 
-    Node root;
+    private Node root;
 
     class Node {
         int value;
@@ -112,4 +112,52 @@ public class BinarySearchTree {
         deleteNode(root, value);
     }
 
+    public int minValue(Node currentNode) {
+        while (currentNode.left != null) {
+            currentNode = currentNode.left;
+        }
+        return currentNode.value;
+    }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
