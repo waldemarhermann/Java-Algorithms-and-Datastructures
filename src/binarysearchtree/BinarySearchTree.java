@@ -1,6 +1,8 @@
 package binarysearchtree;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Queue;
 
 public class BinarySearchTree {
 
@@ -160,6 +162,38 @@ public class BinarySearchTree {
         Node node = new Node(nums[mid]);
         node.left = sortedArrayToBST(nums, left, mid - 1);
         node.right = sortedArrayToBST(nums, mid + 1, right);
+        return node;
+    }
+
+    public ArrayList<Integer> BFS() {
+        Node currentNode = root;
+        Queue<Node> queue = new LinkedList<>();
+        ArrayList<Integer> results = new ArrayList<>();
+        if (currentNode != null) {
+            queue.add(currentNode);
+        }
+
+        while (queue.size() > 0) {
+            currentNode = queue.remove();
+            if (currentNode != null) {
+                results.add(currentNode.value);
+                queue.add(currentNode.left);
+                queue.add(currentNode.right);
+            }
+        }
+        return results;
+    }
+
+    public void invert() {
+        root = invertTree(root);
+    }
+
+    private Node invertTree(Node node) {
+        if (node == null) return null;
+
+        Node temp = node.left;
+        node.left = invertTree(node.right);
+        node.right = invertTree(temp);
         return node;
     }
 
