@@ -17,8 +17,8 @@ public class Main {
         myBST.insert(52);
         myBST.insert(82);
 
-        System.out.println("Breadth First Search:");
-        System.out.println( myBST.BFS() );
+        System.out.println("DFS InOrder:");
+        System.out.println(myBST.DFSInOrder());
     }
 
 }
