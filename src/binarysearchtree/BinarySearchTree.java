@@ -165,25 +165,6 @@ public class BinarySearchTree {
         return node;
     }
 
-    public ArrayList<Integer> BFS() {
-        Node currentNode = root;
-        Queue<Node> queue = new LinkedList<>();
-        ArrayList<Integer> results = new ArrayList<>();
-        if (currentNode != null) {
-            queue.add(currentNode);
-        }
-
-        while (queue.size() > 0) {
-            currentNode = queue.remove();
-            if (currentNode != null) {
-                results.add(currentNode.value);
-                queue.add(currentNode.left);
-                queue.add(currentNode.right);
-            }
-        }
-        return results;
-    }
-
     public void invert() {
         root = invertTree(root);
     }
@@ -195,6 +176,25 @@ public class BinarySearchTree {
         node.left = invertTree(node.right);
         node.right = invertTree(temp);
         return node;
+    }
+
+    public ArrayList<Integer> BFS() {
+        Node currentNode = root;
+        Queue<Node> queue = new LinkedList<>();
+        ArrayList<Integer> results = new ArrayList<>();
+        queue.add(currentNode);
+
+        while (!queue.isEmpty()) {
+            currentNode = queue.remove();
+            results.add(currentNode.value);
+            if (currentNode.left != null) {
+                queue.add(currentNode.left);
+            }
+            if (currentNode.right != null) {
+                queue.add(currentNode.right);
+            }
+        }
+        return results;
     }
 
 }
