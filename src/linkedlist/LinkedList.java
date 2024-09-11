@@ -266,6 +266,25 @@ public class LinkedList {
         head = dummyNode.next;
     }
 
+    public void bubbleSort() {
+        if (length < 2) return;
+
+        Node sortedUntil = null;
+        while (sortedUntil != this.head.next) {
+            Node current = head;
+            while (current.next != sortedUntil) {
+                Node nextNode = current.next;
+                if (current.value > nextNode.value) {
+                    int temp = current.value;
+                    current.value = nextNode.value;
+                    nextNode.value = temp;
+                }
+                current = current.next;
+            }
+            sortedUntil = current;
+        }
+    }
+
 
 
 }
