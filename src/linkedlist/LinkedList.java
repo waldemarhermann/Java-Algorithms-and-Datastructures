@@ -285,6 +285,27 @@ public class LinkedList {
         }
     }
 
+    public void selectionSort() {
+        if (length < 2) return;
+        Node current = head;
+        while (current.next != null) {
+            Node smallest = current;
+            Node innerCurrent = current.next;
+            while (innerCurrent != null) {
+                if (smallest.value > innerCurrent.value) {
+                    smallest = innerCurrent;
+                }
+                innerCurrent = innerCurrent.next;
+            }
+            if (smallest != current) {
+                int temp = current.value;
+                current.value = smallest.value;
+                smallest.value = temp;
+            }
+            current = current.next;
+        }
+    }
+
 
 
 }
