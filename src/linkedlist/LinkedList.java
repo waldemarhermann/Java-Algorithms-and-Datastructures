@@ -306,6 +306,34 @@ public class LinkedList {
         }
     }
 
+    public void insertionSort() {
+        if (length < 2) return;
+        Node sortedListHead = head;
+        Node unsortedListHead = head.next;
+        sortedListHead.next = null;
+        while (unsortedListHead != null) {
+            Node current = unsortedListHead;
+            unsortedListHead = unsortedListHead.next;
+            if (current.value < sortedListHead.value) {
+                current.next = sortedListHead;
+                sortedListHead = current;
+            } else {
+                Node searchPointer = sortedListHead;
+                while (searchPointer.next != null && current.value > searchPointer.next.value) {
+                    searchPointer = searchPointer.next;
+                }
+                current.next = searchPointer.next;
+                searchPointer.next = current;
+            }
+        }
+        head = sortedListHead;
+        Node temp = head;
+        while (temp.next != null) {
+            temp = temp.next;
+        }
+        tail = temp;
+    }
+
 
 
 }
